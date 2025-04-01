@@ -14,4 +14,4 @@ COPY znc.conf /home/znc/.znc/configs/znc.conf
 
 # 端口和启动
 EXPOSE 8080
-CMD ["gosu", "znc", "znc"]
+CMD ["su", "znc", "-c", "znc"]
