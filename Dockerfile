@@ -1,4 +1,4 @@
-FROM debian:13
+FROM debian:unstable
 
 RUN apt update && apt install soju -y && sojudb create-user lczws -admin
 
