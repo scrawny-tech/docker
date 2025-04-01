@@ -1,6 +1,6 @@
 FROM alpine:3.21
 
-RUN apk update && apk add soju && sojudb create-user lczws -admin
+RUN apk update && apk add soju sojudb && sojudb create-user lczws -admin
 
 EXPOSE 6667
 
