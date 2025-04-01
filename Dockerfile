@@ -1,9 +1,9 @@
-FROM alpine:3.21
+FROM Debian:13
 
 ARG USERNAME
 ARG PASSWORD
 
-RUN apk add ttyd
+RUN apt install ttyd
 
 EXPOSE 8080
 
