@@ -1,10 +1,7 @@
-FROM debian:unstable
+FROM apline:3.21
 
-ARG USERNAME
-ARG PASSWORD
+RUN apk update & apk add sujo -y
 
-RUN apt-get update & sudo apt-get install -y apt-transport-https & apt install ttyd
+EXPOSE 6667
 
-EXPOSE 8080
-
-CMD ["sh", "-c", "ttyd -W -p 8080 -c $USERNAME:$PASSWORD sh"]
+CMD ["sh", "-c", "soju -listen irc+insecure://127.0.0.1:6667"]
