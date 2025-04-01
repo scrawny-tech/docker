@@ -1,7 +1,7 @@
 FROM alpine:3.21
 
-ARG USERNAME="admin"
-ARG PASSWORD="zvB7Ls857agNKdVJ"
+ARG USERNAME
+ARG PASSWORD
 
 RUN apk add ttyd
 
