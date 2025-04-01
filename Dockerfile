@@ -1,4 +1,4 @@
-FROM apline:3.21
+FROM alpine:3.21
 
 RUN apk update & apk add sujo -y
 
