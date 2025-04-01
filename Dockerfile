@@ -1,9 +1,9 @@
-FROM debian:unstable
+FROM debian:12
 
-RUN apt update \
-    && apt install soju -y \
-    && sojudb create-user lczws -admin
+COPY znc.conf /home/znc/.znc/configs/znc.conf
 
-EXPOSE 6667
+RUN apt update && apt install znc -y && useradd -ms /bin/bash znc
 
-CMD ["sh", "-c", "soju -listen irc+insecure://127.0.0.1:6667"]
+EXPOSE 8080
+
+CMD ["sh", "-c", "su znc && znc"]
