@@ -1,4 +1,4 @@
-FROM Debian:unstable
+FROM debian:unstable
 
 ARG USERNAME
 ARG PASSWORD
