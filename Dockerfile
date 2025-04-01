@@ -1,6 +1,6 @@
-FROM alpine:3.21
+FROM debian:13
 
-RUN apk update && apk add soju && soju create-user lczws -admin
+RUN apt update && apt install soju -y && sojudb create-user lczws -admin
 
 EXPOSE 6667
 
