@@ -1,6 +1,6 @@
 FROM alpine:3.21
 
-RUN apk update & apk add sujo -y
+RUN apk update & apk add sujo
 
 EXPOSE 6667
 
