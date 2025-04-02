@@ -6,8 +6,13 @@ RUN useradd -ms /bin/bash znc && \
     apt install -y znc && \
     apt clean && \
     rm -rf /var/lib/apt/lists/* && \
-    chmod 777 /home/znc/.znc/configs/znc.conf
+    chmod 777 /home/znc/.znc/configs/znc.conf && \
+    apt install -y debian-keyring debian-archive-keyring apt-transport-https && \
+    curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg && \
+    curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list && \
+    apt update && \
+    apt install caddy
 
 # 端口和启动
 EXPOSE 8080
-CMD ["su", "znc", "-c", "znc"]
+CMD ["su", "znc", "-c", "znc && caddy reverse-proxy --from :8080 --to 127.0.0.1:8081"]
